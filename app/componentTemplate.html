@@ -1,0 +1,51 @@
+<form class="form-group">
+    <div class="form-group">
+        <label for="originalCost">Precio de lista del producto o servicio</label>
+        <input class="form-control" type="number" name="originalCost" [(ngModel)]="originalCost" required>
+
+    </div>
+    <div class="form-group">
+        <label for="cashDiscountPercentage">% descuento por pago al contado o efectivo</label>
+        <input class="form-control" type="number" name="cashDiscountPercentage" [(ngModel)]="cashDiscountPercentage" required>
+
+    </div>
+    <div class="form-group">
+        <label for="cardSurchargePercentage">% recargo por pago con tarjeta</label>
+        <input class="form-control" type="number" name="cardSurchargePercentage" [(ngModel)]="cardSurchargePercentage" required>
+
+    </div>
+    <div class="form-group">
+        <label for="feeCount">Cantidad de cuotas</label>
+        <input class="form-control" type="number" name="feeCount" [(ngModel)]="feeCount" required>
+
+    </div>
+    <div class="form-group">
+        <label for="fixedTermAnualPercentage">Interés anual plazo fijo</label>
+        <input class="form-control" type="number" name="fixedTermAnualPercentage" [(ngModel)]="fixedTermAnualPercentage" required>
+    </div>
+
+    <button type="submit" name="button" (click)="calculate()">Calcular</button>
+</form>
+
+
+<label>Costo al contado:</label> {{cashCost}}
+<br>
+<label>Costo con tarjeta:</label> {{cardCost}}
+<br>
+<label>Valor de la cuota:</label> {{feeCost}}
+<br>
+
+<div *ngFor="#item of fixedTermMonthlyGains">
+    <!-- <h3>Mes:</h3>{{item.index}} -->
+    <label>Monto invertido en p/ fijo:</label> {{item.investedAmount}}
+    <br>
+    <label>Ganancias del mes:</label> {{item.computedGains}}
+    <br>
+
+
+</div>
+
+
+
+
+<label>Monto disponible al finalizar las cuotas:</label> {{availableCashAtDeadline}}
